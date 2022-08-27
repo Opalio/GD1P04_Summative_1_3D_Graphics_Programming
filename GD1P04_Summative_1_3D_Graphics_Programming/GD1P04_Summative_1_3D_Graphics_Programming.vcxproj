@@ -153,6 +153,7 @@
     <ClCompile Include="CShapeHex.cpp" />
     <ClCompile Include="CShapeQuad.cpp" />
     <ClCompile Include="CTESTQUADSHAPE.cpp" />
+    <ClCompile Include="CTextureLoader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
   </ItemGroup>
@@ -178,6 +179,7 @@
     <ClInclude Include="CShapeHex.h" />
     <ClInclude Include="CShapeQuad.h" />
     <ClInclude Include="CTESTQUADSHAPE.h" />
+    <ClInclude Include="CTextureLoader.h" />
     <ClInclude Include="ShaderLoader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
