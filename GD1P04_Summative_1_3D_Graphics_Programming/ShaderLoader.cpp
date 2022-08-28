@@ -1,3 +1,16 @@
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2022 Media Design School
+//
+// File Name	: ShaderLoader.h
+// Description	: Function definitions for ShaderLoader class
+// Author		: Dr Ranpreet Kaur
+// Mail			: 
+//
+
 #include "ShaderLoader.h" 
 #include<iostream>
 #include<fstream>

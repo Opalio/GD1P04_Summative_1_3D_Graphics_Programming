@@ -1,3 +1,16 @@
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2022 Media Design School
+//
+// File Name	: CTextureLoader.cpp
+// Description	: Fucntion definitions for CTextureLoader class
+// Author		: Oliver Webb-Speight
+// Mail			: Oliver.WebbSpeight@mds.ac.nz
+//
+
 #include "CTextureLoader.h"
 
 void CTextureLoader::LoadTexture(GLuint& _texture, const char* _sFilePath, bool _bModeWraps)

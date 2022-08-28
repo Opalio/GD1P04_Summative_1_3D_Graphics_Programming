@@ -1,3 +1,16 @@
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2022 Media Design School
+//
+// File Name	: CShapeQuad.cpp
+// Description	: Contains function definitions for CShapeQuad class
+// Author		: Oliver Webb-Speight
+// Mail			: Oliver.WebbSpeight@mds.ac.nz
+//
+
 #include "CShapeQuad.h"
 
 CShapeQuad::CShapeQuad()

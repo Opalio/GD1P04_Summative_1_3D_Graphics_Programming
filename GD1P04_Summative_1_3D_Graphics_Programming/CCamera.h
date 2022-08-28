@@ -1,4 +1,17 @@
 #pragma once
+//
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2022 Media Design School
+//
+// File Name	: CCamera.h
+// Description	: Calculates and holds data on the View and Projection Matrices required for the PVM matrices
+// Author		: Oliver Webb-Speight
+// Mail			: Oliver.WebbSpeight@mds.ac.nz
+//
 
 #include <glm.hpp>
 #include <gtc/matrix_transform.hpp>

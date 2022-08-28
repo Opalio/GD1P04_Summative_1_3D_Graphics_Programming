@@ -1,3 +1,16 @@
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2022 Media Design School
+//
+// File Name	: CCamera.cpp
+// Description	: Contains definitions for the CCamera class
+// Author		: Oliver Webb-Speight
+// Mail			: Oliver.WebbSpeight@mds.ac.nz
+//
+
 #include "CCamera.h"
 
 CCamera::CCamera()

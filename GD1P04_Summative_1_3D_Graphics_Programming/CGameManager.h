@@ -1,4 +1,17 @@
 #pragma once
+//
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2022 Media Design School
+//
+// File Name	: CGameManager.h
+// Description	: Class contains the shapes, textures, programs of the program and functionality to create and manipulate them
+// Author		: Oliver Webb-Speight
+// Mail			: Oliver.WebbSpeight@mds.ac.nz
+//
 
 // Includes of static classes to help initialise shaders and textures
 #include "ShaderLoader.h"

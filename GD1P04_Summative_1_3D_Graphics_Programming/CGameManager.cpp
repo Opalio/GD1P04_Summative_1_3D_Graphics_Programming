@@ -1,3 +1,17 @@
+//
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2022 Media Design School
+//
+// File Name	: CGameManager.cpp
+// Description	: Contains all the definitions of the CGameManager class
+// Author		: Oliver Webb-Speight
+// Mail			: Oliver.WebbSpeight@mds.ac.nz
+//
+
 #include "CGameManager.h"
 
 CGameManager::CGameManager(GLFWwindow* _pWindow, int _iWindowWidth, int _iWindowHeight)

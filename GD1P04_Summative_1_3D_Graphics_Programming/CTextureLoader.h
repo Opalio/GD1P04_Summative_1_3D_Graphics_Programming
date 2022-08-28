@@ -1,4 +1,16 @@
 #pragma once
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2022 Media Design School
+//
+// File Name	: CTextureLoader.h
+// Description	: static class utilised to load textures for GL
+// Author		: Oliver Webb-Speight
+// Mail			: Oliver.WebbSpeight@mds.ac.nz
+//
 
 // GL Includes
 #include <glew.h>

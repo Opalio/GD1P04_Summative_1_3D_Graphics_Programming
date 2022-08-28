@@ -1,4 +1,16 @@
 #pragma once
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2022 Media Design School
+//
+// File Name	: CShapeQuad.cpp
+// Description	: Quad shape to be rendered with a looping animation done via sprite sheet
+// Author		: Oliver Webb-Speight
+// Mail			: Oliver.WebbSpeight@mds.ac.nz
+//
 
 // GL includes
 #include <glew.h>

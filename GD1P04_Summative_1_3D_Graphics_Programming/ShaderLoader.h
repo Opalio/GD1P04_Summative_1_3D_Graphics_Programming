@@ -1,4 +1,16 @@
 #pragma once
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2022 Media Design School
+//
+// File Name	: ShaderLoader.h
+// Description	: Utilised to load shaders into programs
+// Author		: Dr Ranpreet Kaur
+// Mail			: 
+//
 
 // Library Includes
 #include <glew.h>

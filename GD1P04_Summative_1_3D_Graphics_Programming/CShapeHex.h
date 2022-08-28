@@ -1,4 +1,16 @@
 #pragma once
+// Bachelor of Software Engineering
+// Media Design School
+// Auckland
+// New Zealand
+//
+// (c) 2022 Media Design School
+//
+// File Name	: CShapeHex.h
+// Description	: Hexagon shape to be rendered with two interpolating textures, two renders of one hexagon with one VAO, EBO, VBO and one set of vertices
+// Author		: Oliver Webb-Speight
+// Mail			: Oliver.WebbSpeight@mds.ac.nz
+//
 
 // GL includes
 #include <glew.h>

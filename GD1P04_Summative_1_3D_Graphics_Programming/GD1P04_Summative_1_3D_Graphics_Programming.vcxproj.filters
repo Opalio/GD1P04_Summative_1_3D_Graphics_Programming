@@ -16,9 +16,6 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{74acac93-d76a-40ea-8a52-e5d908b96f73}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Yet To Be Implimented">
-      <UniqueIdentifier>{429ad099-e76f-44aa-a8a5-cb1680ee281d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -33,18 +30,6 @@
     <ClCompile Include="CGameManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CTESTQUADSHAPE.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CHexagon.cpp">
-      <Filter>Yet To Be Implimented</Filter>
-    </ClCompile>
-    <ClCompile Include="CQuad.cpp">
-      <Filter>Yet To Be Implimented</Filter>
-    </ClCompile>
-    <ClCompile Include="CShape.cpp">
-      <Filter>Yet To Be Implimented</Filter>
-    </ClCompile>
     <ClCompile Include="CShapeHex.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -56,34 +41,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Shaders\FixedTriangle.vs">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Resources\Shaders\FixedColor.fs">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Resources\Shaders\PositionOnly.vs">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Resources\Shaders\VertexColor.vs">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Resources\Shaders\VertexColor.fs">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Resources\Shaders\VertexColorFade.fs">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Resources\Shaders\NDC_Texture.vs">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Resources\Shaders\Texture.fs">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="Resources\Shaders\TextureMix.fs">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Resources\Shaders\WorldSpace.vs">
       <Filter>Shaders</Filter>
     </None>
     <None Include="Resources\Shaders\ClipSpace.vs">
@@ -102,18 +60,6 @@
     </ClInclude>
     <ClInclude Include="CGameManager.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CTESTQUADSHAPE.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CHexagon.h">
-      <Filter>Yet To Be Implimented</Filter>
-    </ClInclude>
-    <ClInclude Include="CQuad.h">
-      <Filter>Yet To Be Implimented</Filter>
-    </ClInclude>
-    <ClInclude Include="CShape.h">
-      <Filter>Yet To Be Implimented</Filter>
     </ClInclude>
     <ClInclude Include="CShapeHex.h">
       <Filter>Header Files</Filter>

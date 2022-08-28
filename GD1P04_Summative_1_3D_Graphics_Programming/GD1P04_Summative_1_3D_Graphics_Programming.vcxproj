@@ -147,39 +147,22 @@
   <ItemGroup>
     <ClCompile Include="CCamera.cpp" />
     <ClCompile Include="CGameManager.cpp" />
-    <ClCompile Include="CHexagon.cpp" />
-    <ClCompile Include="CQuad.cpp" />
-    <ClCompile Include="CShape.cpp" />
     <ClCompile Include="CShapeHex.cpp" />
     <ClCompile Include="CShapeQuad.cpp" />
-    <ClCompile Include="CTESTQUADSHAPE.cpp" />
     <ClCompile Include="CTextureLoader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\ClipSpace.vs" />
-    <None Include="Resources\Shaders\FixedColor.fs" />
-    <None Include="Resources\Shaders\FixedTriangle.vs" />
-    <None Include="Resources\Shaders\NDC_Texture.vs" />
-    <None Include="Resources\Shaders\PositionOnly.vs" />
-    <None Include="Resources\Shaders\Texture.fs" />
     <None Include="Resources\Shaders\TextureAnimation.fs" />
     <None Include="Resources\Shaders\TextureMix.fs" />
-    <None Include="Resources\Shaders\VertexColor.fs" />
-    <None Include="Resources\Shaders\VertexColor.vs" />
-    <None Include="Resources\Shaders\VertexColorFade.fs" />
-    <None Include="Resources\Shaders\WorldSpace.vs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CCamera.h" />
     <ClInclude Include="CGameManager.h" />
-    <ClInclude Include="CHexagon.h" />
-    <ClInclude Include="CQuad.h" />
-    <ClInclude Include="CShape.h" />
     <ClInclude Include="CShapeHex.h" />
     <ClInclude Include="CShapeQuad.h" />
-    <ClInclude Include="CTESTQUADSHAPE.h" />
     <ClInclude Include="CTextureLoader.h" />
     <ClInclude Include="ShaderLoader.h" />
   </ItemGroup>
