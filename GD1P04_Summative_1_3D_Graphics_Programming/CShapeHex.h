@@ -22,6 +22,9 @@ public:
 	// Use the program, bind the VAO, send the variables to the shaders and Draw the elements of the shape; glfwSwapBuffers will still need to be called
 	void Draw(float _fCurrentTime, const GLuint& _program, const GLuint& _textureOne, const GLuint& _textureTwo);
 
+	// Adjust object position by inputed vector; ensure value is scaled to deltatime if continuous action
+	void Move(glm::vec3 _v3fDisplacement);
+
 private:
 
 	// Setup the Vertices/Indices

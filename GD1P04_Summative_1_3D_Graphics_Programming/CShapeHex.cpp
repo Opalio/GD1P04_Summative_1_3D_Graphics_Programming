@@ -62,6 +62,13 @@ void CShapeHex::Update(const glm::mat4& _m4fCameraProjection, const glm::mat4& _
 	return;
 }
 
+void CShapeHex::Move(glm::vec3 _v3fDisplacement)
+{
+	m_v3fPosition += _v3fDisplacement;
+	m_v3fPositionTwo += _v3fDisplacement;
+	return;
+}
+
 void CShapeHex::Draw(float _fCurrentTime, const GLuint& _program, const GLuint& _textureOne, const GLuint& _textureTwo)
 {
 	glUseProgram(_program);

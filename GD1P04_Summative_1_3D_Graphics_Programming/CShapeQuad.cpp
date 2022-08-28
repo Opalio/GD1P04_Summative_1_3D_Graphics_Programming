@@ -46,6 +46,7 @@ void CShapeQuad::Update(const glm::mat4& _m4fCameraProjection, const glm::mat4& 
 	// Calculate the PVM matrix for the render
 	m_m4fPVM = _m4fCameraProjection * _m4fCameraView * m4fModel;
 
+
 	// Update FrameOffset
 	UpdateAnimationFrameOffset(_fDeltaTime);
 
@@ -66,13 +67,6 @@ void CShapeQuad::Draw(const GLuint& _program, const GLuint& _textureAnimation)
 	// Send what frame to play in animation
 	glUniform1f(glGetUniformLocation(_program, "AnimationFrameOffset"), m_fAnimationFrameOffset);
 
-	//glActiveTexture(GL_TEXTURE1);
-	//glBindTexture(GL_TEXTURE_2D, _textureTwo);
-	//glUniform1i(glGetUniformLocation(_program, "ImageTexture1"), 1);
-
-	//// Pass time
-	//glUniform1f(glGetUniformLocation(_program, "CurrentTime"), _fCurrentTime);
-
 	// Pass PVM matrices to the shaders via Uniform
 	GLint PVMMatLoc = glGetUniformLocation(_program, "PVMMat");
 	glUniformMatrix4fv(PVMMatLoc, 1, GL_FALSE, glm::value_ptr(m_m4fPVM));
@@ -82,6 +76,27 @@ void CShapeQuad::Draw(const GLuint& _program, const GLuint& _textureAnimation)
 	// Unbind assests to prevent accidental use/modification
 	glBindVertexArray(0);
 	glUseProgram(0);
+
+	return;
+}
+
+void CShapeQuad::Move(glm::vec3 _v3fDisplacement)
+{
+	m_v3fPosition += _v3fDisplacement;
+	return;
+}
+
+void CShapeQuad::IncrementFramerateBy(float _fFPS)
+{
+	m_fAnimationFPS += _fFPS;
+
+	if (m_fAnimationFPS < 0.1f)
+	{
+		m_fAnimationFPS = 0.1f;
+	}
+
+	// Recalculate
+	m_fTimeOneFramePlays = 1.0f / m_fAnimationFPS;
 
 	return;
 }

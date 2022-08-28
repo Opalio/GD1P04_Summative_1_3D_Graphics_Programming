@@ -21,6 +21,12 @@ public:
 	// Use the program, bind the VAO, send the variables to the shaders and Draw the elements of the shape; glfwSwapBuffers will still need to be called
 	void Draw(const GLuint& _program, const GLuint& _textureAnimation);
 
+	// Adjust object position by inputed vector; ensure value is scaled to deltatime if continuous action
+	void Move(glm::vec3 _v3fDisplacement);
+
+	// Increase/Decrease framerate; Can not go lower than zero
+	void IncrementFramerateBy(float _fFPS);
+
 private:
 	// Number of animation frames in spritesheet
 	const int m_iNumberOfFrames = 16;
@@ -62,8 +68,8 @@ private:
 	float m_fAnimationTimer = 0.0f;
 	int m_iCurrentAnimationFrameIndex = 0;
 
-	const float m_fAnimationFPS = 10.0f;
-	const float m_fTimeOneFramePlays = 1.0f / m_fAnimationFPS;
+	float m_fAnimationFPS = 15.0f;
+	float m_fTimeOneFramePlays = 1.0f / m_fAnimationFPS;
 
 
 
