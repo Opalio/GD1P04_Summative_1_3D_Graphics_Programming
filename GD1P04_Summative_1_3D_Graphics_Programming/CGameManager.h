@@ -1,4 +1,6 @@
 #pragma once
+
+
 class CGameManager
 {
 public:
@@ -6,7 +8,11 @@ public:
 	CGameManager();
 	~CGameManager();
 
+	void Update();
+	void Render();
+
 private:
+	//GLuint m_Texture
 
 };
 

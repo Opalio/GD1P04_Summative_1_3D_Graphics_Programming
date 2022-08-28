@@ -89,6 +89,9 @@
     <None Include="Resources\Shaders\ClipSpace.vs">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="Resources\Shaders\TextureAnimation.fs">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ShaderLoader.h">

@@ -164,6 +164,7 @@
     <None Include="Resources\Shaders\NDC_Texture.vs" />
     <None Include="Resources\Shaders\PositionOnly.vs" />
     <None Include="Resources\Shaders\Texture.fs" />
+    <None Include="Resources\Shaders\TextureAnimation.fs" />
     <None Include="Resources\Shaders\TextureMix.fs" />
     <None Include="Resources\Shaders\VertexColor.fs" />
     <None Include="Resources\Shaders\VertexColor.vs" />

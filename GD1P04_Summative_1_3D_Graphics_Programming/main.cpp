@@ -35,6 +35,7 @@ void Render();
 
 // Programs
 GLuint Program_ClipSpace;
+GLuint Program_AnimationSpriteSheet;
 
 // Time
 float fCurrentTime;
@@ -44,6 +45,10 @@ float fPreviousTimeStep;
 // Textures
 GLuint Texture_Rayman;
 GLuint Texture_AwesomeFace;
+GLuint Texture_Animation;
+GLuint Texture_VinesSpriteSheet;
+GLuint Texture_Squid;
+GLuint Texture_Sprinkler;
 
 // Camera
 CCamera camera;
@@ -115,8 +120,11 @@ void InitialSetup()
 
 	// Create the programs
 	
-	Program_ClipSpace = ShaderLoader::CreateProgram(	"Resources/Shaders/ClipSpace.vs",
-														"Resources/Shaders/TextureMix.fs");
+	Program_ClipSpace = ShaderLoader::CreateProgram(			"Resources/Shaders/ClipSpace.vs",
+																"Resources/Shaders/TextureMix.fs");
+
+	Program_AnimationSpriteSheet = ShaderLoader::CreateProgram(	"Resources/Shaders/ClipSpace.vs",
+																"Resources/Shaders/TextureAnimation.fs");
 
 	pShapeHex = new CShapeHex;
 	pShapeQuad = new CShapeQuad;
@@ -129,9 +137,16 @@ void InitialSetup()
 	stbi_set_flip_vertically_on_load(true);
 	// ---------------------------------------------------Load the Image Data
 	CTextureLoader::LoadTexture(Texture_Rayman, "Resources/Textures/Rayman.jpg", true);
+	CTextureLoader::LoadTexture(Texture_Squid, "Resources/Textures/Kalimari.png", true);
 
 	// ----------------------------------------------------- Load the Second Image Data
 	CTextureLoader::LoadTexture(Texture_AwesomeFace, "Resources/Textures/AwesomeFace.png", true);
+	CTextureLoader::LoadTexture(Texture_Sprinkler, "Resources/Textures/Sprinkler.PNG", true);
+
+	// Load the spritesheet for the animation
+	CTextureLoader::LoadTexture(Texture_Animation, "Resources/Textures/Capguy_Walk.png", true);
+	CTextureLoader::LoadTexture(Texture_VinesSpriteSheet, "Resources/Textures/GrowingVinesSpriteSheet.png", true);
+
 
 	// Initialize the first value of the "previous" time step
 	fPreviousTimeStep = (float)glfwGetTime();
@@ -143,8 +158,8 @@ void Render()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	pShapeHex->Draw(fCurrentTime, Program_ClipSpace, Texture_Rayman, Texture_AwesomeFace);
-	pShapeQuad->Draw(fCurrentTime, Program_ClipSpace, Texture_Rayman, Texture_AwesomeFace);
+	pShapeHex->Draw(fCurrentTime, Program_ClipSpace, Texture_Squid, Texture_Sprinkler);
+	pShapeQuad->Draw(Program_AnimationSpriteSheet, Texture_VinesSpriteSheet);
 
 	glfwSwapBuffers(pWindow);
 
@@ -156,7 +171,7 @@ void Update()
 {
 	// Calculate the current DeltaTime and update the PreviousTimeStep for the next frame
 	fCurrentTime = (float)glfwGetTime();
-	float fDeltaTime = fPreviousTimeStep - fCurrentTime;
+	float fDeltaTime = fCurrentTime - fPreviousTimeStep;
 	fPreviousTimeStep = fCurrentTime;
 
 	glfwPollEvents();
@@ -168,7 +183,7 @@ void Update()
 	pShapeHex->Update(camera.GetProjectionMat(), camera.GetViewMat());
 
 	// Update the Quad and generate its PVM
-	pShapeQuad->Update(camera.GetProjectionMat(), camera.GetViewMat());
+	pShapeQuad->Update(camera.GetProjectionMat(), camera.GetViewMat(), fDeltaTime);
 
 	return;
 }

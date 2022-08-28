@@ -29,7 +29,7 @@ CShapeQuad::~CShapeQuad()
 {
 }
 
-void CShapeQuad::Update(const glm::mat4& _m4fCameraProjection, const glm::mat4& _m4fCameraView)
+void CShapeQuad::Update(const glm::mat4& _m4fCameraProjection, const glm::mat4& _m4fCameraView, float _fDeltaTime)
 {
 	// Calculate the Translation matrix
 	glm::mat4 m4fTranslation = glm::translate(glm::mat4(), m_v3fPosition);
@@ -46,25 +46,32 @@ void CShapeQuad::Update(const glm::mat4& _m4fCameraProjection, const glm::mat4& 
 	// Calculate the PVM matrix for the render
 	m_m4fPVM = _m4fCameraProjection * _m4fCameraView * m4fModel;
 
+	// Update FrameOffset
+	UpdateAnimationFrameOffset(_fDeltaTime);
+
 	return;
 }
 
-void CShapeQuad::Draw(float _fCurrentTime, const GLuint& _program, const GLuint& _textureOne, const GLuint& _textureTwo)
+
+void CShapeQuad::Draw(const GLuint& _program, const GLuint& _textureAnimation)
 {
 	glUseProgram(_program);
 	glBindVertexArray(m_VAO);
 
 	// Activate and bind the textures then send them to the shader
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, _textureOne);
+	glBindTexture(GL_TEXTURE_2D, _textureAnimation);
 	glUniform1i(glGetUniformLocation(_program, "ImageTexture"), 0);
 
-	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, _textureTwo);
-	glUniform1i(glGetUniformLocation(_program, "ImageTexture1"), 1);
+	// Send what frame to play in animation
+	glUniform1f(glGetUniformLocation(_program, "AnimationFrameOffset"), m_fAnimationFrameOffset);
 
-	// Pass time
-	glUniform1f(glGetUniformLocation(_program, "CurrentTime"), _fCurrentTime);
+	//glActiveTexture(GL_TEXTURE1);
+	//glBindTexture(GL_TEXTURE_2D, _textureTwo);
+	//glUniform1i(glGetUniformLocation(_program, "ImageTexture1"), 1);
+
+	//// Pass time
+	//glUniform1f(glGetUniformLocation(_program, "CurrentTime"), _fCurrentTime);
 
 	// Pass PVM matrices to the shaders via Uniform
 	GLint PVMMatLoc = glGetUniformLocation(_program, "PVMMat");
@@ -75,6 +82,29 @@ void CShapeQuad::Draw(float _fCurrentTime, const GLuint& _program, const GLuint&
 	// Unbind assests to prevent accidental use/modification
 	glBindVertexArray(0);
 	glUseProgram(0);
+
+	return;
+}
+
+
+void CShapeQuad::UpdateAnimationFrameOffset(float _fDeltaTime)
+{
+	// Increment the timer by how much time has passed
+	m_fAnimationTimer += _fDeltaTime;
+
+	// Calculate FrameOffset by truncating how much time has passed for this animation loop devided by the amount of time each frame should play
+	m_iCurrentAnimationFrameIndex = int(m_fAnimationTimer / m_fTimeOneFramePlays);
+
+	// check if frame offset would run out of frames in shader (texture would loop but nice to keep this a tidy small number)
+	if (m_iCurrentAnimationFrameIndex > m_iNumberOfFrames - 1) // -1 to account for 0 frame
+	{
+		// Reset Values to loop animation
+		m_iCurrentAnimationFrameIndex = 0;
+		m_fAnimationTimer = 0.0f;
+	}
+
+	// Update the required texture offset
+	m_fAnimationFrameOffset = m_fFrameOffset * float(m_iCurrentAnimationFrameIndex);
 
 	return;
 }

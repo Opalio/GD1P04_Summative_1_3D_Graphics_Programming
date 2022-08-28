@@ -16,20 +16,25 @@ public:
 	~CShapeQuad();
 
 	// Calculates the TRS matrices individually and forms the model matrix; Camera must be updated before calling this update function
-	void Update(const glm::mat4& _m4fCameraProjection, const glm::mat4& _m4fCameraView);
+	void Update(const glm::mat4& _m4fCameraProjection, const glm::mat4& _m4fCameraView, float _fDeltaTime);
 
 	// Use the program, bind the VAO, send the variables to the shaders and Draw the elements of the shape; glfwSwapBuffers will still need to be called
-	void Draw(float _fCurrentTime, const GLuint& _program, const GLuint& _textureOne, const GLuint& _textureTwo);
+	void Draw(const GLuint& _program, const GLuint& _textureAnimation);
 
 private:
+	// Number of animation frames in spritesheet
+	const int m_iNumberOfFrames = 16;
+
+	// Distance between frames
+	const float m_fFrameOffset = 1.0f / m_iNumberOfFrames;
 
 	// Setup the Vertices/Indices
 	GLfloat m_afVertices[32] = {
 		// Index	// Position				// Color			// Texture Coords
-		/* 0 */		-1.0f,  1.0f, 0.0f,		1.0f, 0.0f, 0.0f,	0.0f, 1.0f,		// Top - Left
-		/* 1 */		-1.0f, -1.0f, 0.0f,		0.0f, 1.0f, 0.0f,	0.0f, 0.0f,		// Bot - Left
-		/* 2 */		 1.0f, -1.0f, 0.0f,		1.0f, 0.0f, 1.0f,	1.0f, 0.0f,		// Bot - Right
-		/* 3 */		 1.0f,  1.0f, 0.0f,		0.0f, 1.0f, 1.0f,	1.0f, 1.0f,		// Top - Left
+		/* 0 */		-1.0f,  1.0f, 0.0f,		1.0f, 0.0f, 0.0f,	0.0f,			1.0f,		// Top - Left
+		/* 1 */		-1.0f, -1.0f, 0.0f,		0.0f, 1.0f, 0.0f,	0.0f,			0.0f,		// Bot - Left
+		/* 2 */		 1.0f, -1.0f, 0.0f,		1.0f, 0.0f, 1.0f,	m_fFrameOffset, 0.0f,		// Bot - Right
+		/* 3 */		 1.0f,  1.0f, 0.0f,		0.0f, 1.0f, 1.0f,	m_fFrameOffset, 1.0f,		// Top - Left
 	};
 
 	GLuint m_auIndices[6] = {
@@ -49,6 +54,21 @@ private:
 
 	// PVM matrix for the render of this Quad
 	glm::mat4 m_m4fPVM;
+
+	// To be sent to animation shader to adjust texcoords of vertex on spritesheet
+	float m_fAnimationFrameOffset = 0.0f;
+
+	// Used to calculate AnimationFrameOffset
+	float m_fAnimationTimer = 0.0f;
+	int m_iCurrentAnimationFrameIndex = 0;
+
+	const float m_fAnimationFPS = 10.0f;
+	const float m_fTimeOneFramePlays = 1.0f / m_fAnimationFPS;
+
+
+
+	// Update what frame animation should be on based on deltatime
+	void UpdateAnimationFrameOffset(float _fDeltaTime);
 
 };
 
